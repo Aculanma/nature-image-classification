@@ -1,0 +1,16 @@
+data:
+  train_dir: data/raw/train
+  val_dir: data/raw/val
+  test_dir: data/raw/test
+
+training:
+  epochs: 8
+  batch_size: 32
+  lr: 0.001
+  seed: 42
+
+output:
+  dir: outputs
+
+model:
+  type: baseline

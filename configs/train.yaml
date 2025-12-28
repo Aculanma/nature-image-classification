@@ -1,0 +1,12 @@
+model:
+  type: resnet50
+training:
+  epochs: 8
+  batch_size: 32
+  lr: 0.01
+  random_seed: 42
+  test_size: 0.15
+  val_size: 0.10
+paths:
+  data_dir: data/raw
+  output_dir: outputs

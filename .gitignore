@@ -1,0 +1,28 @@
+__pycache__/
+*.py[co]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+build/
+dist/
+wheels/
+
+# Virtual environments
+.venv
+
+# Data and outputs
+data/
+outputs/
+
+# DVC cache
+.dvc/cache/
+.dvc/tmp/
+.dvc/config
+
+# IDE
+.idea/
+
+# Python local environment/versioning
+.python-version
+uv.lock
