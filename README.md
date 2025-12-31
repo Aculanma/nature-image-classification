@@ -63,28 +63,19 @@ uv sync
 ```
 
 ### 5. Настройка dvc
-В проекте используется DVC для хранения данных и артефактов обучения.
-Удаленное хранилище настраивается локально.
-Пример настройки для Yandex Object Storage:
+В проекте используется DVC для хранения данных и артефактов обучения.  
+Данные хранятся в публичном Object Storage (Yandex Cloud).  
+Настройка удалённого хранилища:
 ```bash
-# Добавляем удалённое хранилище по умолчанию
-dvc remote add -d storage s3://mlops-first-steps
-# Указываем URL эндпоинта
-dvc remote modify storage endpointurl https://storage.yandexcloud.net
+# Добавляем удалённое хранилище 
+dvc remote add -d storage https://storage.yandexcloud.net/mlops-first-steps
 ```
+После этого можно загрузить данные локально:
+```bash
+dvc pull
+```
+DVC автоматически восстановит структуру данных в папке data/ (включая train, test и val) в соответствии с .dvc-файлами проекта.
 
-DVC будет использовать AWS-конфиг или переменные окружения для авторизации.
-Пример локального AWS-конфига:
-```bash
-[default]
-aws_access_key_id = <ВАШ_КЛЮЧ>
-aws_secret_access_key = <ВАШ_СЕКРЕТ>
-```
-Или просто через переменные окружения:
-```bash
-export AWS_ACCESS_KEY_ID=<ВАШ_КЛЮЧ>
-export AWS_SECRET_ACCESS_KEY=<ВАШ_СЕКРЕТ>
-```
 ### 6. Загрузка данных
 ```bash
 dvc pull
